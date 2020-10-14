@@ -1,0 +1,87 @@
+<html>
+
+<head>
+  <title>이디어츠의 공연 목록</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+
+<body>
+  <div class="app">
+    <header>
+      밴드 이디어츠 공연 일정
+    </header>
+    <div class="container">
+      <div class="grid">
+        {{#each lives}}
+        <a href={{link}}>
+          <div class="item">
+            <img src="{{posterUrl}}" />
+            <div class="description">
+              <div class="title">{{title}}</div>
+              <div class="place">{{date}} / {{club.name}}</div>
+            </div>
+          </div>
+        </a>
+        {{/each}}
+      </div>
+      <button class="load-more-button">Load More!!</button>
+    </div>
+  </div>
+  <script>
+    let page = 1
+    let isLoading = false
+    const $loadMoreButton = document.querySelector('.load-more-button')
+    const $grid = document.querySelector('.grid')
+
+    const enableLoading = () => {
+      isLoading = true
+      $loadMoreButton.setAttribute('disabled', '')
+      $loadMoreButton.textContent = 'Loading...'
+    }
+
+    const disableLoading = () => {
+      isLoading = false
+      $loadMoreButton.removeAttribute('disabled')
+      $loadMoreButton.textContent = 'Load More!!'
+    }
+
+    const fetchNextLives = async () => {
+
+      page = page + 1
+      const res = await fetch(`https://admin.idiots.band/lives?_limit=6&_start=${page * 6}`)
+      const result = await res.json()
+      const lives = result.map(live => ({
+        bands: live.bands,
+        title: live.title,
+        club: live.club,
+        date: live.date,
+        link: `https://idiots.band/live/${live.slug}/`,
+        posterUrl: `https://admin.idiots.band${live.posters[0].url}`,
+      }))
+      renderLives(lives)
+    }
+
+    const renderLives = (lives) => {
+      const htmlString = lives.map(live => {
+        return `
+        <div class="item">
+          <img src="${live.posterUrl}" />
+          <div class="description">
+            <div class="title">${live.title}</div>
+            <div class="place">${live.date} / ${live.club.name}$</div>
+          </div>
+        </div>
+      `
+      }).join('')
+      $grid.innerHTML = $grid.innerHTML + htmlString
+    }
+    $loadMoreButton.addEventListener('click', () => {
+      if (!isLoading) {
+        fetchNextLives()
+      }
+    })
+  </script>
+</body>
+
+</html>
