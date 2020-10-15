@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'NEXON Lv2 Gothic Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MaplestoryOTFLight';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: 'MaplestoryOTFLight';
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 70px;
+  padding: 24px 0;
+  background-color: #0050b3;
+  color: #fff;
+  font-size: 48px;
+  font-family: 'NEXON Lv2 Gothic Bold';
+  text-align: center;
+}
+
+.container {
+  flex: 1;
+  height: auto;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 40px;
+  padding-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  row-gap: 10px;
+  column-gap: 10px;
+  grid-template-rows: repeat(2, 500px);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid .item {
+  width: 250px;
+  padding: 10px;
+}
+
+.grid .item:hover {
+  background-color: #e6f7ff;
+}
+
+.grid img {
+  object-fit: contain;
+  width: 250px;
+  height: 350px;
+}
+
+.grid .item .description {
+  margin-top: 12px;
+}
+
+.grid .item .title {
+  font-size: 20px;
+}
+
+.grid .item .place {
+  text-align: right;
+  color: #888;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.load-more-button {
+  border: 0;
+  padding: 16px;
+  background-color: #1890ff;
+  color: #fff;
+  width: 100%;
+  border-radius: 8px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -47,7 +47,6 @@
     }
 
     const fetchNextLives = async () => {
-
       page = page + 1
       const res = await fetch(`https://admin.idiots.band/lives?_limit=6&_start=${page * 6}`)
       const result = await res.json()
