@@ -4,7 +4,7 @@ const axios = require('axios')
 
 const app = express()
 
-const CMS_URL = 'https://admin.idiots.band'
+const CMS_URL = 'https://idiots.roto.codes'
 const PAGE_PER_COUNT = 6
 
 app.engine('handlebars', exphbs())
@@ -20,7 +20,7 @@ app.get('/', async (req, res) => {
       title: live.title,
       club: live.club,
       date: live.date,
-      link: `https://idiots.band/live/${live.slug}/`,
+      link: `https://idiots.roto.codes/live/${live.slug}/`,
       posterUrl: `${CMS_URL}${live.posters[0].url}`,
     })),
   })

@@ -1,4 +1,4 @@
-const END_POINT = 'https://admin.idiots.band'
+const END_POINT = 'https://idiots.roto.codes'
 
 const PAGE_PER_COUNT = 6
 

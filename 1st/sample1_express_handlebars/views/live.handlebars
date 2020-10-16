@@ -48,7 +48,7 @@
 
     const fetchNextLives = async () => {
       page = page + 1
-      const res = await fetch(`https://admin.idiots.band/lives?_limit=6&_start=${page * 6}`)
+      const res = await fetch(`https://idiots.roto.codes/lives?_limit=6&_start=${page * 6}`)
       const result = await res.json()
       const lives = result.map(live => ({
         bands: live.bands,
@@ -56,7 +56,7 @@
         club: live.club,
         date: live.date,
         link: `https://idiots.band/live/${live.slug}/`,
-        posterUrl: `https://admin.idiots.band${live.posters[0].url}`,
+        posterUrl: `https://idiots.roto.codes${live.posters[0].url}`,
       }))
       renderLives(lives)
     }

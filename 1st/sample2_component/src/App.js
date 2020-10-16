@@ -13,6 +13,8 @@ export default function App({ $app }) {
   }
 
   const $container = document.createElement('div')
+  $container.className = 'container'
+  $app.appendChild($container)
 
   this.header = new Header({ $app })
   this.liveList = new LiveList({
@@ -45,7 +47,7 @@ export default function App({ $app }) {
       club: live.club,
       date: live.date,
       link: `https://idiots.band/live/${live.slug}/`,
-      posterUrl: `https://admin.idiots.band${live.posters[0].url}`,
+      posterUrl: `https://idiots.roto.codes${live.posters[0].url}`,
     }))
 
     const nextState = {
