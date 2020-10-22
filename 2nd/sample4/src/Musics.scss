@@ -1,0 +1,22 @@
+.Musics {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  
+  > div {
+    display: flex;
+    flex-direction: column;
+    width: clamp(300px, 33%, 400px);
+  }
+ 
+ 
+  img {
+    width: 100%;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

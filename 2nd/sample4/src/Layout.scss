@@ -1,0 +1,29 @@
+.Layout {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  font-family: 'NEXON Lv2 Gothic';
+
+  header {
+    background-color: #52c41a;
+    color: #fff;
+    font-size: 4rem;
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  main {
+    flex-grow: 1;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 64rem;
+    padding: 1rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #eee
+  }
+}
