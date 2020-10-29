@@ -26,7 +26,8 @@ export default function Home({ lives }) {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps({ req }) {
+  console.log(process.env.NEXT_PUBLIC_URL)
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/live`)
   const lives = await res.json()
   return {
